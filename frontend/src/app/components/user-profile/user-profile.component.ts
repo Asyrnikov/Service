@@ -1,21 +1,30 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/models/user';
 import { AuthService } from './../../shared/auth.service';
-// User interface
-export class User {
-  name: any;
-  email: any;
-}
+
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
   styleUrls: ['./user-profile.component.scss'],
 })
 export class UserProfileComponent implements OnInit {
-  UserProfile!: User;
+  userProfile: User;
+
   constructor(public authService: AuthService) {
-    this.authService.profileUser().subscribe((data: any) => {
-      this.UserProfile = data;
+    this.userProfile = {
+      id: 0,
+      firstname: "",
+      lastname: "",
+      phone_number: "",
+      email: "",
+      password: "",
+      password_confirmation: "",
+    };
+  }
+
+  ngOnInit() {
+    this.authService.profileUser().subscribe((user) => {
+      this.userProfile = user;
     });
   }
-  ngOnInit() {}
 }

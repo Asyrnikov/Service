@@ -16,10 +16,12 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->dateTime('registration_date');
-            $table->string('lastname');
-            $table->string('firstname');
-            $table->string('patronymic');
-            $table->string('phone_number');
+            $table->boolean('paid');
+            $table->boolean('checked');
+            $table->boolean('completed');
+            $table->integer('cost');
+            $table->bigInteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

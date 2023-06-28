@@ -18,7 +18,7 @@ return new class extends Migration
             $table->bigInteger('type_id')->unsigned();
             $table->foreign('type_id')->references('id')->on('types');
             $table->string('name');
-            $table->string('count');
+            $table->integer('count');
             $table->timestamps();
         });
     }

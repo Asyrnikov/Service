@@ -1,0 +1,20 @@
+.table-container {
+    max-width: 100%;
+    width: 100%;
+    overflow: auto;
+    margin-bottom: 16px;
+    table {
+        width: 100%;
+        tr.t-detail-row {
+            height: 0;
+        }
+        .t-element-detail {
+            overflow: hidden;
+            display: flex;
+        }
+    }
+}
+
+.gray {
+    background-color: #f5f5f5;
+}

@@ -17,18 +17,20 @@ class AddOrder extends Seeder
     {
         DB::table('orders')->insert([
             [
-              'registration_date' => '2021-02-13 14:33:21',
-              'lastname' => 'Syrnikov',
-              'firstname' => 'Alexander',
-              'patronymic' => 'Sergeevich',
-              'phone_number' => '+375(29)321-32-33'
+                'registration_date' => '2021-02-13 14:33:21',
+                'paid' => true,
+                'checked' => false,
+                'completed' => false,
+                'cost' => 300,
+                'user_id' => 1,
             ],
             [
                 'registration_date' => '2020-01-13 11:24:01',
-                'lastname' => 'Syrnikov',
-                'firstname' => 'Anton',
-                'patronymic' => 'Sergeevich',
-                'phone_number' => '+375(29)451-22-41'
+                'paid' => true,
+                'checked' => true,
+                'completed' => true,
+                'cost' => 200,
+                'user_id' => 1,
             ],
         ]);
     }

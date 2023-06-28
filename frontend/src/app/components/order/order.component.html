@@ -1,25 +1,6 @@
 <div class="">
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <div class="form-row">
-            <div class="form-group col-md-3">
-                <label for="lastname">Last Name</label>
-                <input formControlName="lastname" class="form-control" placeholder="For example: Pirozhkov" [ngClass]="{'form-control' : true,'error': f['lastname'].invalid && (f['lastname'].dirty || f['lastname'].touched)}" id="lastname">
-            </div>
-
-            <div class="form-group col-md-3">
-                <label for="firstname">First name</label>
-                <input formControlName="firstname" class="form-control" placeholder="For example: Andrew" [ngClass]="{'form-control' : true,'error': f['firstname'].invalid && (f['firstname'].dirty || f['firstname'].touched)}" id="firstname">
-            </div>
-
-            <div class="form-group col-md-3">
-                <label for="patronymic">Patronymic</label>
-                <input formControlName="patronymic" class="form-control" placeholder="For example: Igorevich" [ngClass]="{'form-control' : true,'error': f['patronymic'].invalid && (f['patronymic'].dirty || f['patronymic'].touched)}" id="patronymic">
-            </div>
-
-            <div class="form-group col-md-3">
-                <label for="phone_number">Phone number</label>
-                <input formControlName="phone_number" class="form-control" placeholder="For example: 291231212" [ngClass]="{'form-control' : true,'error': f['phone_number'].invalid && (f['phone_number'].dirty || f['phone_number'].touched)}" id="phone_number">
-            </div>
             <div *ngFor="let type of types">
                 <div class="form-check form-switch">
                     <input class="form-check-input" type="checkbox" role="switch" id="{{type.type}}" [checked]="type.isChecked" (change)="switchType($event)">
@@ -30,7 +11,7 @@
                 <label for="selectJob">Select Jobs</label>
                 <!-- <app-multi-dropdown *ngFor="let item of jobs" (itemChange)="($event)"></app-multi-dropdown>></app-multi-dropdown> -->
                 <select formControlName="jobs" multiple [ngClass]="{'form-select' : true,'error': f['jobs'].invalid && (f['jobs'].dirty || f['jobs'].touched)}" aria-label="Default select example" id="selectJob">
-                    <option *ngFor="let item of jobs" [value]="item.id">{{item.name}} {{item.count}}</option>
+                    <option *ngFor="let item of jobs" [value]="item">{{item.name}} {{item.count}}$</option>
                 </select>
             </div>
         </div>  

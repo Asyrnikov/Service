@@ -20,6 +20,11 @@ use Illuminate\Support\Facades\Route;
 Route::resource('types', TypeController::class);
 Route::resource('jobs', JobController::class);
 Route::resource('orders', OrderController::class);
+Route::get('orders/user/{userId}', [OrderController::class, 'getOrdersByUserId']);
+Route::get('orders/checked/{checked}', [OrderController::class, 'getOrdersByChecked']);
+Route::get('orders/paid/{paid}', [OrderController::class, 'getOrdersByPaid']);
+Route::get('orders/completed/{completed}', [OrderController::class, 'getOrdersByCompleted']);
+
 Route::group([
     'middleware' => 'api',
     'prefix' => 'auth'

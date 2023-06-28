@@ -11,7 +11,7 @@ import { AuthStateService } from '../../shared/auth-state.service';
 })
 export class SigninComponent implements OnInit {
   loginForm: FormGroup;
-  errors:any = null;
+  errors: any = null;
   constructor(
     public router: Router,
     public fb: FormBuilder,
@@ -25,6 +25,7 @@ export class SigninComponent implements OnInit {
     });
   }
   ngOnInit() {}
+
   onSubmit() {
     this.authService.signin(this.loginForm.value).subscribe(
       (result) => {

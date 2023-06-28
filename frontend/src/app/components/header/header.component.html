@@ -17,22 +17,46 @@
                     </ul>
                 </li> -->
                 <li class="nav-item" (click)="isPriceListCollapsed = true">
-                    <a class="nav-link" routerLink="/jobs">Price List</a>
+                    <a class="nav-link" routerLink="/price" *ngIf="!isAdmin">Price List</a>
                 </li>
                 <li class="nav-item" (click)="isPriceListCollapsed = true">
-                    <a class="nav-link" routerLink="/order">Order</a>
+                    <a class="nav-link" routerLink="/order" *ngIf="isSignedIn && isUser">Create order</a>
+                </li>
+                <li>
+                    <a class="nav-link" routerLink="/show" *ngIf="isSignedIn && isUser">Show my orders</a>
                 </li>
                 <li class="nav-item" (click)="isPriceListCollapsed = true">
-                    <a class="nav-link" routerLink="/contact">Contact with us</a>
+                    <a class="nav-link" routerLink="/contact" *ngIf="!isAdmin">Contact with us</a>
+                </li>
+                <li> 
+                    <a class="nav-link" routerLink="/showcompletedorders" *ngIf="isSignedIn && isAdmin">Show completed orders</a>
+                </li>
+                <li> 
+                    <a class="nav-link" routerLink="/showoutstandingorders" *ngIf="isSignedIn && isAdmin">Show outstanding orders</a>
+                </li>
+                <li> 
+                    <a class="nav-link" routerLink="/showunpaidorders" *ngIf="isSignedIn && isAdmin">Show unpaid orders</a>
+                </li>
+                <li> 
+                    <a class="nav-link" routerLink="/printalluserorders" *ngIf="isSignedIn && isAdmin">Print all orders</a>
+                </li>
+                <li> 
+                    <a class="nav-link" routerLink="/printcheckeduserorders" *ngIf="isSignedIn && isAdmin">Print checked orders</a>
+                </li>
+                <li> 
+                    <a class="nav-link" routerLink="/printoutstandinguserorders" *ngIf="isSignedIn && isAdmin">Print outstanding orders</a>
+                </li>
+                <li> 
+                    <a class="nav-link" routerLink="/printunpaiduserorders" *ngIf="isSignedIn && isAdmin">Print unpaid orders</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="/profile" *ngIf="isSignedIn">User Profile</a>
+                    <a class="nav-link" routerLink="/profile" *ngIf="isSignedIn">My Profile</a>
                 </li>
                 <li> 
                     <a class="nav-link" *ngIf="!isSignedIn" routerLink="/login">Log in</a>
-                </li> 
+                </li>
                 <li>
-                    <a class="nav-link" routerLink="/register">Register</a>
+                    <a class="nav-link" routerLink="/register" *ngIf="!isSignedIn">Register</a>
                 </li>
             </ul>
         </div>

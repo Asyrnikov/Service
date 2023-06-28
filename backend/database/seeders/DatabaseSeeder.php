@@ -18,8 +18,8 @@ class DatabaseSeeder extends Seeder
             AddJob::class,
             AddOrder::class,
             AddJobOrder::class,
+            AddRoleAndPermissionSeeder::class,
             AddUser::class,
-            RoleAndPermissionSeeder::class,
         ]);
         // \App\Models\User::factory(10)->create();
         // \App\Models\User::factory()->create([

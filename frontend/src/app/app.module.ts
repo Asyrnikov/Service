@@ -19,7 +19,26 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './shared/auth.interceptor';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
-import { JobsComponent } from './jobs/jobs.component';
+import { PriceComponent } from './components/price/price.component';
+import { ShowComponent } from './components/show/show.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { LayoutModule } from '@angular/cdk/layout';
+import { ShowoutstandingordersComponent } from './components/showoutstandingorders/showoutstandingorders.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { ShowunpaidordersComponent } from './components/showunpaidorders/showunpaidorders.component';
+import { ShowcompleteordersComponent } from './components/showcompleteorders/showcompleteorders.component';
+import { PrintalluserordersComponent } from './components/printalluserorders/printalluserorders.component';
+import { PrintcheckeduserordersComponent } from './components/printcheckeduserorders/printcheckeduserorders.component';
+import { PrintunpaiduserordersComponent } from './components/printunpaiduserorders/printunpaiduserorders.component';
+import { PrintoutstandinguserordersComponent } from './components/printoutstandinguserorders/printoutstandinguserorders.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +53,15 @@ import { JobsComponent } from './jobs/jobs.component';
     SigninComponent,
     SignupComponent,
     UserProfileComponent,
-    JobsComponent,
+    PriceComponent,
+    ShowComponent,
+    ShowoutstandingordersComponent,
+    ShowunpaidordersComponent,
+    ShowcompleteordersComponent,
+    PrintalluserordersComponent,
+    PrintcheckeduserordersComponent,
+    PrintunpaiduserordersComponent,
+    PrintoutstandinguserordersComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +71,18 @@ import { JobsComponent } from './jobs/jobs.component';
     ReactiveFormsModule,
     FormsModule,
     CommonModule,
-    RouterModule
+    RouterModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatIconModule,
+    LayoutModule,
+    FlexLayoutModule,
+    MatDatepickerModule,
   ],
   exports: [
     RouterModule

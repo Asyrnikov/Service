@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Services\Response\ResponseService;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
@@ -50,7 +52,9 @@ class AuthController extends Controller {
     public function register(Request $request) {
         Log::channel('command')->info($request);
         $validator = Validator::make($request->all(), [
-            'name' => 'required|string|between:2,100',
+            'firstname' => 'required|string|between:2,100',
+            'lastname' => 'required|string|between:2,100',
+            'phone_number' => 'required|string|between:2,100',
             'email' => 'required|string|email|max:100|unique:users',
             'password' => 'required|string|confirmed|min:6',
         ]);
@@ -63,6 +67,7 @@ class AuthController extends Controller {
             $validator->validated(),
             ['password' => bcrypt($request->password)]
         ));
+        $user->assignRole('user');
 
         return response()->json([
             'message' => 'User successfully registered',
@@ -93,10 +98,15 @@ class AuthController extends Controller {
     /**
      * Get the authenticated User.
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function userProfile() {
-        return response()->json(auth()->user());
+        return ResponseService::sendJsonResponse(
+            true,
+            [
+                'item' => auth()->user(),
+            ]
+        );
     }
 
     /**
@@ -107,11 +117,12 @@ class AuthController extends Controller {
      * @return \Illuminate\Http\JsonResponse
      */
     protected function createNewToken($token){
+
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
             'expires_in' => auth('api')->factory()->getTTL() * 60,
-            'user' => auth()->user()
+            'user' => auth()->user(),
         ]);
     }
 

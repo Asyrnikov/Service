@@ -19,17 +19,17 @@ class AddJob extends Seeder
             [
                 'type_id' => 1,
                 'name'    => 'Installation job',
-                'count' => '100$'
+                'count' => 100,
             ],
             [
                 'type_id' => 2,
                 'name'    => 'Repair job',
-                'count' => '100$'
+                'count' => 100,
             ],
             [
                 'type_id' => 1,
                 'name'    => 'Installation job2',
-                'count' => '200$'
+                'count' => 200,
             ],
         ]);
     }

@@ -23,22 +23,18 @@ class OrderController extends ApiController
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return JsonResponse
      */
     public function index()
     {
-        //
+        return ResponseService::sendJsonResponse(
+            true,
+            [
+                'items' => $this->service->getOrders()->toArray()
+            ]
+        );
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -60,27 +56,6 @@ class OrderController extends ApiController
         );
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -113,4 +88,63 @@ class OrderController extends ApiController
     {
         //
     }
+
+
+    /**
+     *
+     * @return JsonResponse
+     */
+    public function getOrdersByUserId(int $userId): JsonResponse
+    {
+        return ResponseService::sendJsonResponse(
+            true,
+            [
+                'items' => $this->service->getOrdersByUserId($userId)->toArray()
+            ]
+        );
+    }
+
+    /**
+     *
+     * @return JsonResponse
+     */
+    public function getOrdersByChecked(int $checked): JsonResponse
+    {
+        return ResponseService::sendJsonResponse(
+            true,
+            [
+                'items' => $this->service->getOrdersByChecked($checked)->toArray()
+            ]
+        );
+    }
+
+    /**
+     *
+     * @return JsonResponse
+     */
+    public function getOrdersByPaid(int $paid): JsonResponse
+    {
+        return ResponseService::sendJsonResponse(
+            true,
+            [
+                'items' => $this->service->getOrdersByPaid($paid)->toArray()
+            ]
+        );
+    }
+
+    /**
+     *
+     * @return JsonResponse
+     */
+    public function getOrdersByCompleted(int $completed): JsonResponse
+    {
+        return ResponseService::sendJsonResponse(
+            true,
+            [
+                'items' => $this->service->getOrdersByCompleted($completed)->toArray()
+            ]
+        );
+    }
 }
+
+
